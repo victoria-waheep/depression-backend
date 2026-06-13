@@ -1,6 +1,3 @@
-def _mi_score_func(*args, **kwargs):
-    pass
-
 import os
 from app import create_app
 
@@ -8,4 +5,5 @@ app = create_app()
 
 if __name__ == "__main__":
     debug = os.getenv("FLASK_ENV", "development") == "development"
-    app.run(host="0.0.0.0", port=5000, debug=debug)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=debug)
